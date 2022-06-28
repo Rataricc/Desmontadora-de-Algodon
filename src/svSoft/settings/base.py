@@ -41,7 +41,8 @@ DJANGO_APPS = [
 
 # Aplicaciones que son creadas por mi en dicho sistema o software.
 LOCAL_APPS = [
-    'apps.tipo_alg'
+    'apps.tipo_alg', 
+    'apps.variedad'
 ]
 
 # Aplicaciones que son de terceros.
