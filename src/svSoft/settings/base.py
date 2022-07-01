@@ -43,7 +43,8 @@ DJANGO_APPS = [
 LOCAL_APPS = [
     'apps.tipo_alg', 
     'apps.variedad',
-    'apps.chofer_camion'
+    'apps.chofer_camion',
+    'apps.padron'
 ]
 
 # Aplicaciones que son de terceros.
