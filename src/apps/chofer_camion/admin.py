@@ -3,7 +3,7 @@ from .models import Chofer, Camion
 # Register your models here.
 
 class ChoferAdmin(admin.ModelAdmin):
-    list_display = ['codigo_transportista', 'descripcion_transportista', 'carnet_conducir_chofer', 'num_cuit_chofer']
+    list_display = ['codigo_transportista', 'descripcion_transportista', 'carnet_conducir_chofer', 'num_cuit_chofer', 'padron']
 
 admin.site.register(Chofer, ChoferAdmin)
 

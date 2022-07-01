@@ -1,5 +1,7 @@
 from django.db import models
 
+from apps.padron.models import Padron
+
 # Create your models here.
 
 class Chofer(models.Model): 
@@ -7,6 +9,7 @@ class Chofer(models.Model):
     descripcion_transportista = models.CharField(max_length=30)
     carnet_conducir_chofer = models.IntegerField()
     num_cuit_chofer = models.IntegerField()
+    padron = models.OneToOneField(Padron, on_delete=models.CASCADE, null=True, blank=True)
 
     class Meta: 
         db_table = 'chofer'
