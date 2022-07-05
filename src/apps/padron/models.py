@@ -1,4 +1,7 @@
 from django.db import models
+#import uuid
+from apps.padron.utils import custom_id
+
 
 # Create your models here.
 
@@ -28,7 +31,7 @@ class Establecimiento(models.Model):
 class Lotes(models.Model): 
     padron = models.ForeignKey(Padron, on_delete=models.CASCADE)
     establecimiento = models.ForeignKey(Establecimiento, on_delete=models.CASCADE)
-    numero_lote = models.BigAutoField(auto_created=True, primary_key=True, verbose_name='ID') 
+    numero_lote = models.BigIntegerField(primary_key=True, unique=True, default=custom_id, verbose_name='ID')
 
     class Meta: 
         db_table = 'lotes'
