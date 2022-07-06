@@ -44,7 +44,9 @@ LOCAL_APPS = [
     'apps.tipo_alg', 
     'apps.variedad',
     'apps.chofer_camion',
-    'apps.padron'
+    'apps.padron',
+    'apps.establecimiento',
+    'apps.lotes'
 ]
 
 # Aplicaciones que son de terceros.
