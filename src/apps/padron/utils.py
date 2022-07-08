@@ -1,6 +1,8 @@
-from operator import ne
+#from operator import ne
 import secrets
 #from django.db import models
+
+
 
 
 def custom_id(): 

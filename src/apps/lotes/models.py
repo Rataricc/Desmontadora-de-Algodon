@@ -12,3 +12,6 @@ class Lotes(models.Model):
 
     class Meta: 
         db_table = 'lotes'
+
+    def __str__(self):
+        return '%s' % (self.numero_lote)

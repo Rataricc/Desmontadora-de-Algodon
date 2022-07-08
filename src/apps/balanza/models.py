@@ -1,17 +1,16 @@
+from django.db                   import models
 from apps.establecimiento.models import Establecimiento
 from apps.chofer_camion.models   import Chofer
 from apps.tipo_alg.models        import Tipo_Alg
 from apps.variedad.models        import Variedad
 from apps.padron.models          import Padron
 from apps.lotes.models           import Lotes
-from django.db                   import models
 
 
 # Create your models here.
 
 class Balanza(models.Model): 
-    # Al numero de remito: falta agregar una funcionalidad, espero que funcione.
-    numero_remito = models.CharField(max_length=12, primary_key=True, unique=True, editable=False, verbose_name='ID') 
+    numero_remito = models.BigAutoField(primary_key=True, unique=True, editable=False, verbose_name='ID') 
     padron = models.ForeignKey(Padron, on_delete=models.CASCADE, verbose_name='codigo_cliente')
     codigo_productor = models.BigIntegerField(unique=True)
     tipo_alg = models.ForeignKey(Tipo_Alg, on_delete=models.CASCADE, verbose_name='codigo_cosecha')
@@ -28,7 +27,21 @@ class Balanza(models.Model):
         db_table = 'balanza'
 
     def __str__(self): 
-        return '%s, %s %s' % (self.patente_camion, self.patente_acoplado)
-    """
-    NO SE REALIZO NINGUN MAKEMIGRATIONS AUN - NI TAMPOCO UN MIGARTE DE ESTA TABLA.
-    """
+        return self.patente_camion + '' + self.patente_acoplado
+"""
+    def save(self, *args, **kwargs): 
+        if self.numero_remito is None: 
+            last_numero_remito = self.__class__.objects.all().order_by('numero_remito').last()
+            if last_numero_remito is None: 
+                last_numero_remito = '000000000000'
+            last_numero_remito_number = ''.join(substr for substr in last_numero_remito if substr.isdigit())
+            leading_zeros = len(last_numero_remito_number) - 1
+            incremented_number = int(last_numero_remito_number) + 1
+            incremented_number = str(incremented_number).zfill(leading_zeros)
+            self.numero_remito = f'{incremented_number}'
+        super(Balanza, self).save(*args, **kwargs)
+"""
+
+#balanza1 = Balanza('00000000001', '4', '2', '1', '1', '1', '1', '4', '1234567', '1hf2345', 'h3435gd', '2022-07-07')
+#balanza1.save()
+
