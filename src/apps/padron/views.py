@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from .forms import PadronForm
+from django.views.generic import ListView
+from django.shortcuts     import render
+from .forms               import PadronForm
+from .models              import Padron
 # Create your views here.
 
 def padron(request): 
@@ -13,3 +15,8 @@ def padron(request):
         'form':form
     }
     return render(request, template_name, ctx)
+
+class TablaPadron(ListView): 
+    template_name = 'padron/tabla_padron.html'
+    model = Padron
+    context_object_name = 'padron'

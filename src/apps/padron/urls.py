@@ -5,4 +5,5 @@ app_name = "padron"
 
 urlpatterns = [
     path('padron/', views.padron, name='Nuevopadron'),
+    path('Tabla_Padron/', views.TablaPadron.as_view(), name='tablapadron'),
 ]
