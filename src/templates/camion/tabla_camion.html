@@ -1,0 +1,38 @@
+{% extends "base/index.html" %}
+
+{% block contenido %}
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">patent truck</th>
+                                <th scope="col">coupled patent</th>
+                                <th scope="col">driver ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for a in camion %}
+                                <tr>
+                                    <td>{{a.id}}</td>
+                                    <td>{{a.patente_camion}}</td>
+                                    <td>{{a.patente_acomplado}}</td>
+                                    <td>{{a.chofer_id}}</td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td>No se encontraron resultados</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock contenido %}

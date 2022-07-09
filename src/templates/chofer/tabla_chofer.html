@@ -1,0 +1,40 @@
+{% extends "base/index.html" %}
+
+{% block contenido %}
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">name and surname</th>
+                                <th scope="col">driver's license</th>
+                                <th scope="col">driver cuit number</th>
+                                <th scope="col">census ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for a in chofer %}
+                                <tr>
+                                    <td>{{a.codigo_transportista}}</td>
+                                    <td>{{a.descripcion_transportista}}</td>
+                                    <td>{{a.carnet_conducir_chofer}}</td>
+                                    <td>{{a.num_cuit_chofer}}</td>
+                                    <td>{{a.padron_id}}</td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td>No se encontraron resultados</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock contenido %}
