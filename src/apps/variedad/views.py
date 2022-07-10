@@ -1,5 +1,7 @@
-from django.shortcuts    import render
-from apps.variedad .forms import VariedadForm 
+from apps.variedad .forms   import VariedadForm 
+from django.views.generic   import ListView
+from django.shortcuts       import render
+from .models                import Variedad
 # Create your views here.
 
 
@@ -14,4 +16,8 @@ def variedad(request):
         'form':form
     }
     return render(request, template_name, ctx)
-# Create your views here.
+
+class TablaVariedad(ListView): 
+    template_name = 'variedad/tabla_variedad.html'
+    model = Variedad
+    context_object_name = 'variedad'

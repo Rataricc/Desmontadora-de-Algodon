@@ -1,5 +1,7 @@
-from django.shortcuts    import render
-from apps.balanza .forms import BalanzaForm 
+from django.views.generic   import ListView
+from .models                import Balanza
+from django.shortcuts       import render
+from apps.balanza .forms    import BalanzaForm 
 # Create your views here.
 
 def balanza(request): 
@@ -13,3 +15,8 @@ def balanza(request):
         'form':form
     }
     return render(request, template_name, ctx)
+
+class TablaBalanza(ListView): 
+    template_name = 'balanza/tabla_balanza.html'
+    model = Balanza
+    context_object_name = 'balanza'

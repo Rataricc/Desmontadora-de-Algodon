@@ -1,5 +1,7 @@
-from django.shortcuts    import render
-from apps.tipo_alg .forms import Tipo_AlgForm 
+from django.views.generic       import ListView
+from django.shortcuts           import render
+from apps.tipo_alg .forms       import Tipo_AlgForm 
+from .models                    import Tipo_Alg
 # Create your views here.
 
 
@@ -14,3 +16,8 @@ def tipo_alg(request):
         'form':form
     }
     return render(request, template_name, ctx)
+
+class TablaTipoAlgodon(ListView): 
+    template_name = 'tipo_alg/tabla_tipo_alg.html'
+    model = Tipo_Alg
+    context_object_name = 'algodon'
