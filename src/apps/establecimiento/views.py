@@ -1,5 +1,7 @@
-from django.shortcuts           import render
 from apps.establecimiento.forms import EstablecimientoForm
+from .models                    import Establecimiento
+from django.shortcuts           import render
+from django.views.generic       import ListView
 
 # Create your views here.
 
@@ -14,3 +16,8 @@ def establecimiento(request):
         'form':form
     }
     return render(request, template_name, ctx)
+
+class TablaEstablecimiento(ListView): 
+    template_name = 'establecimiento/tabla_establecimiento.html'
+    model = Establecimiento
+    context_object_name = 'establecimiento'

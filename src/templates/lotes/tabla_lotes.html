@@ -1,0 +1,36 @@
+{% extends "base/index.html" %}
+
+{% block contenido %}
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">lot number</th>
+                                <th scope="col">census ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for a in lotes %}
+                                <tr>
+                                    <td>{{a.numero_lote}}</td>
+                                    <td>{{a.establecimiento_id}}</td>
+                                    <td>{{a.padron_id}}</td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td>No se encontraron resultados</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock contenido %}

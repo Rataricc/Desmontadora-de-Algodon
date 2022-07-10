@@ -1,0 +1,40 @@
+{% extends "base/index.html" %}
+
+{% block contenido %}
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Establishment Description</th>
+                                <th scope="col">Province</th>
+                                <th scope="col">Department</th>
+                                <th scope="col">Census ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for a in establecimiento %}
+                                <tr>
+                                    <td>{{a.codigo_establecimiento}}</td>
+                                    <td>{{a.descripcion_establecimiento}}</td>
+                                    <td>{{a.provincia}}</td>
+                                    <td>{{a.departamento}}</td>
+                                    <td>{{a.padron_id}}</td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td>No se encontraron resultados</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock contenido %}

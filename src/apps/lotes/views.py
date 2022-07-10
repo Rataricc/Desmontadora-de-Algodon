@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from .forms import LotesForm
+from django.views.generic       import ListView
+from django.shortcuts           import render
+from .models                    import Lotes
+from .forms                     import LotesForm
 
 
 # Create your views here.
@@ -15,3 +17,8 @@ def lotes(request):
         'form':form
     }
     return render(request, template_name, ctx)
+
+class TablaLotes(ListView): 
+    template_name = 'lotes/tabla_lotes.html'
+    model = Lotes
+    context_object_name = 'lotes'
