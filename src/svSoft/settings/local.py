@@ -6,7 +6,7 @@ from .base import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'servisoft',
+        'NAME': 'serviSoft',
         'USER': 'rata1', 
         'PASSWORD': '1',
         'HOST': 'localhost',

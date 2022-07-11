@@ -91,7 +91,13 @@
                     <div class="col-sm-4 offset-md-1 py-4">
                     <h4 class="text-white">Contact</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                        
+                        {% if not user.is_authenticated %}
+                            <li><a href="{% url 'login' %}" class="text-white">Iniciar Sesion</a></li>
+                        {% else %}
+                            <li><a href="{% url 'logout' %}" class="text-white">Cerrar Sesion</a></li>
+                        {% endif %}
+                            
                         <li><a href="#" class="text-white">Like on Facebook</a></li>
                         <li><a href="#" class="text-white">Email me</a></li>
                     </ul>
@@ -118,27 +124,58 @@
                     <div class="col-lg-6 col-md-8 mx-auto">
                         <h1 class="fw-light">ServiSoft : Desmontadora de Algodon</h1>
                         <p class="lead text-muted">Salida de Algodon en Bruto del Campo.</p>
-                        <p>
-                            <a href="{% url 'padron:Nuevopadron' %}" class="btn btn-primary my-2">Padron</a>
-                            <a href="{% url 'lotes:nuevolote' %}" class="btn btn-secondary my-2">Lotes</a>
-                            <a href="{% url 'establecimiento:establecimiento' %}" class="btn btn-secondary my-2">Establecimiento</a>
-                            <a href="{% url 'chofer_camion:chofer' %}" class="btn btn-secondary my-2">Chofer</a>
-                            <a href="{% url 'chofer_camion:camion' %}" class="btn btn-secondary my-2">Camion</a>
-                            <a href="{% url 'tipo_alg:tipo_alg' %}" class="btn btn-secondary my-2">Tipo de Algodon</a>
-                            <a href="{% url 'variedad:variedad' %}" class="btn btn-secondary my-2">Variedad de Semilla</a>
-                            <a href="{% url 'balanza:balanza' %}" class="btn btn-secondary my-2">Balanza</a>
-                        </p>
-                        <br><br><hr>
-                            <p class="lead text-muted">
-                                <a href="{% url 'padron:tablapadron' %}" class="btn btn-secondary my-2">Tabla Padron</a>
-                                <a href="{% url 'chofer_camion:tablachofer' %}" class="btn btn-secondary my-2">Tabla Chofer</a>
-                                <a href="{% url 'chofer_camion:tablacamion' %}" class="btn btn-secondary my-2">Tabla Camion</a>
-                                <a href="{% url 'establecimiento:tablaestablecimiento' %}" class="btn btn-secondary my-2">Tabla Establecimiento</a>
-                                <a href="{% url 'lotes:tablalotes' %}" class="btn btn-secondary my-2">Tabla Lotes</a>
-                                <a href="{% url 'tipo_alg:tablatipoalgodon' %}" class="btn btn-secondary my-2">Tabla Tipo Algodon</a>
-                                <a href="{% url 'variedad:tablavariedad' %}" class="btn btn-secondary my-2">Tabla Variedad de Semilla</a>
-                                <a href="{% url 'balanza:tablabalanza' %}" class="btn btn-secondary my-2">Tabla Balanza</a>
+                        <br><br>
+                        
+                        {% block cont %}
+                            
+                        {% endblock cont %}
+                        
+                        
+                        {% if user.is_authenticated %}
+                            <br><br>
+                            <div class="alert alert-success" role="alert">
+                               Ahora mismo estas auntenticado/a con el usuario {{user}} -
+                               Podra acceder a los datos solicitados, leerlos o modificarlos.
+                            </div>
+                            <br><br>
+                            <center>
+                                <h2>Formularios de Ingresos de Datos</h2>
+                            </center>
+                            <br><br>
+                            <p>
+                                <a href="{% url 'padron:Nuevopadron' %}" class="btn btn-primary my-2">Padron</a>
+                                <a href="{% url 'lotes:nuevolote' %}" class="btn btn-secondary my-2">Lotes</a>
+                                <a href="{% url 'establecimiento:establecimiento' %}" class="btn btn-secondary my-2">Establecimiento</a>
+                                <a href="{% url 'chofer_camion:chofer' %}" class="btn btn-secondary my-2">Chofer</a>
+                                <a href="{% url 'chofer_camion:camion' %}" class="btn btn-secondary my-2">Camion</a>
+                                <a href="{% url 'tipo_alg:tipo_alg' %}" class="btn btn-secondary my-2">Tipo de Algodon</a>
+                                <a href="{% url 'variedad:variedad' %}" class="btn btn-secondary my-2">Variedad de Semilla</a>
+                                <a href="{% url 'balanza:balanza' %}" class="btn btn-secondary my-2">Balanza</a>
                             </p>
+                            <br><br><hr>
+                                <center>
+                                    <h2>Tablas - Base de Datos</h2>
+                                </center>
+                                <br><br>
+                                <p class="lead text-muted">
+                                    <a href="{% url 'padron:tablapadron' %}" class="btn btn-secondary my-2">Tabla Padron</a>
+                                    <a href="{% url 'chofer_camion:tablachofer' %}" class="btn btn-secondary my-2">Tabla Chofer</a>
+                                    <a href="{% url 'chofer_camion:tablacamion' %}" class="btn btn-secondary my-2">Tabla Camion</a>
+                                    <a href="{% url 'establecimiento:tablaestablecimiento' %}" class="btn btn-secondary my-2">Tabla Establecimiento</a>
+                                    <a href="{% url 'lotes:tablalotes' %}" class="btn btn-secondary my-2">Tabla Lotes</a>
+                                    <a href="{% url 'tipo_alg:tablatipoalgodon' %}" class="btn btn-secondary my-2">Tabla Tipo Algodon</a>
+                                    <a href="{% url 'variedad:tablavariedad' %}" class="btn btn-secondary my-2">Tabla Variedad de Semilla</a>
+                                    <a href="{% url 'balanza:tablabalanza' %}" class="btn btn-secondary my-2">Tabla Balanza</a>
+                                </p>
+                        {% else %}
+                            <br><br>
+                            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                                <div>
+                                    Usted no esta autenticado/a, por ende no podra acceder a la informacion solicitada, leerla o modificarla.
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </section>

@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
-from pathlib import Path
+from django.urls import reverse_lazy
+from pathlib     import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +26,11 @@ SECRET_KEY = 'django-insecure-4e4dq@3+7(3ep9f0a$j&ap9^p-d_wnq00@qj!b4-ycm*pzm#nv
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+AUTH_USER_MODEL = 'usuarios.Usuario'
+
+LOGIN_REDIRECT_URL = reverse_lazy('index')
+LOGIN_URL = reverse_lazy('login')
 
 
 # Application definition
@@ -47,7 +52,8 @@ LOCAL_APPS = [
     'apps.padron',
     'apps.establecimiento',
     'apps.lotes',
-    'apps.balanza'
+    'apps.balanza',
+    'apps.usuarios'
 ]
 
 # Aplicaciones que son de terceros.
