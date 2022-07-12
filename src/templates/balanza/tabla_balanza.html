@@ -29,6 +29,7 @@
                                 <th scope="col">Census ID</th>
                                 <th scope="col">Cotton Type ID</th>
                                 <th scope="col">Variety ID</th>
+                                <th></th>
 
                             </tr>
                         </thead>
@@ -47,6 +48,9 @@
                                     <td>{{a.padron_id}}</td>
                                     <td>{{a.tipo_alg_id}}</td>
                                     <td>{{a.variedad_id}}</td>
+                                    <td>
+                                        <a href="{% url 'balanza:editar_tabla_balanza' a.pk %}">Edit</a>
+                                    </td>
                                 </tr>
                             {% empty %}
                                 <tr>
