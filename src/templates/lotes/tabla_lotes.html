@@ -20,6 +20,7 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">lot number</th>
                                 <th scope="col">census ID</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,6 +29,9 @@
                                     <td>{{a.numero_lote}}</td>
                                     <td>{{a.establecimiento_id}}</td>
                                     <td>{{a.padron_id}}</td>
+                                    <td>
+                                        <a href="{% url 'lotes:editar_tabla_lotes' a.pk %}">Edit</a>
+                                    </td>
                                 </tr>
                             {% empty %}
                                 <tr>

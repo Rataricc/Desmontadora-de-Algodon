@@ -19,6 +19,7 @@
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">harvest description</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,6 +27,9 @@
                                 <tr>
                                     <td>{{a.id}}</td>
                                     <td>{{a.descripcion_cosecha}}</td>
+                                    <td>
+                                        <a href="{% url 'tipo_alg:editar_tabla_tipo_algodon' a.pk %}">Edit</a>
+                                    </td>
                                 </tr>
                             {% empty %}
                                 <tr>

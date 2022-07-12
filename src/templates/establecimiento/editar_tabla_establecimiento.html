@@ -1,0 +1,28 @@
+{% extends "base/index.html" %}
+
+{% block contenido %}
+
+   <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="col">
+                <center>
+                    <h1>Editar Establecimiento</h1>
+                    <br>
+                    <h3>Esta Conciente de que editara a: {{establecimiento.descripcion_establecimiento}}</h3>
+                    <br><br>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form method="POST">{% csrf_token %}
+                    <center>
+                        {{form.as_p}}
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                    </center>
+                </form>
+            </div>
+        </div>
+        <br><br><hr>
+				
+{% endblock contenido %}

@@ -4,6 +4,8 @@ from apps.establecimiento.forms     import EstablecimientoForm
 from .models                        import Establecimiento
 from django.shortcuts               import render
 from django.views.generic           import ListView
+from django.urls                    import reverse_lazy
+from django.views.generic.edit      import UpdateView
 
 # Create your views here.
 
@@ -24,3 +26,11 @@ class TablaEstablecimiento(LoginRequiredMixin, ListView):
     template_name = 'establecimiento/tabla_establecimiento.html'
     model = Establecimiento
     context_object_name = 'establecimiento'
+
+class EditarTablaEstablecimiento(UpdateView): 
+    template_name = 'establecimiento/editar_tabla_establecimiento.html'
+    model = Establecimiento
+    form_class = EstablecimientoForm
+
+    def get_success_url(self, **kwargs) -> str:
+        return reverse_lazy('establecimineto:tablaestablecimiento')

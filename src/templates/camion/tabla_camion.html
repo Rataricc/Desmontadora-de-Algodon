@@ -21,6 +21,7 @@
                                 <th scope="col">patent truck</th>
                                 <th scope="col">coupled patent</th>
                                 <th scope="col">driver ID</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,6 +31,9 @@
                                     <td>{{a.patente_camion}}</td>
                                     <td>{{a.patente_acomplado}}</td>
                                     <td>{{a.chofer_id}}</td>
+                                    <td>
+                                        <a href="{% url 'chofer_camion:editar_tabla_camion' a.pk %}">Edit</a>
+                                    </td>
                                 </tr>
                             {% empty %}
                                 <tr>

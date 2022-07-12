@@ -4,6 +4,9 @@ from django.views.generic           import ListView
 from django.shortcuts               import render
 from apps.tipo_alg .forms           import Tipo_AlgForm 
 from .models                        import Tipo_Alg
+from django.urls                    import reverse_lazy
+from django.views.generic.edit      import UpdateView
+
 # Create your views here.
 
 @login_required
@@ -23,3 +26,11 @@ class TablaTipoAlgodon(LoginRequiredMixin, ListView):
     template_name = 'tipo_alg/tabla_tipo_alg.html'
     model = Tipo_Alg
     context_object_name = 'algodon'
+
+class EditarTablaTipoAlgodon(UpdateView): 
+    template_name = 'tipo_alg/editar_tabla_tipo_algodon.html'
+    model = Tipo_Alg
+    form_class = Tipo_AlgForm 
+
+    def get_success_url(self, **kwargs) -> str:
+        return reverse_lazy('tipo_alg:tablatipoalgodon')

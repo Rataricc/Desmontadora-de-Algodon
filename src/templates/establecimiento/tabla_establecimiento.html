@@ -22,6 +22,7 @@
                                 <th scope="col">Province</th>
                                 <th scope="col">Department</th>
                                 <th scope="col">Census ID</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,6 +33,9 @@
                                     <td>{{a.provincia}}</td>
                                     <td>{{a.departamento}}</td>
                                     <td>{{a.padron_id}}</td>
+                                    <td>
+                                        <a href="{% url 'establecimiento:editar_tabla_establecimiento' a.pk %}">Edit</a>
+                                    </td>
                                 </tr>
                             {% empty %}
                                 <tr>

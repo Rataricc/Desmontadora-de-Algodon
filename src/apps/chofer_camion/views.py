@@ -51,3 +51,11 @@ class EditarTablaChofer(UpdateView):
 
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('chofer_camion:tablachofer')
+
+class EditarTablaCamion(UpdateView): 
+    template_name = 'camion/editar_tabla_camion.html'
+    model = Camion
+    form_class = CamionForm
+
+    def get_success_url(self, **kwargs) -> str:
+        return reverse_lazy('chofer_camion:tablacamion')

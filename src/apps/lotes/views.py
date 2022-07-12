@@ -4,6 +4,8 @@ from django.views.generic           import ListView
 from django.shortcuts               import render
 from .models                        import Lotes
 from .forms                         import LotesForm
+from django.urls                    import reverse_lazy
+from django.views.generic.edit      import UpdateView
 
 
 # Create your views here.
@@ -25,3 +27,11 @@ class TablaLotes(LoginRequiredMixin, ListView):
     template_name = 'lotes/tabla_lotes.html'
     model = Lotes
     context_object_name = 'lotes'
+
+class EditarTablaLotes(UpdateView): 
+    template_name = 'lotes/editar_tabla_lotes.html'
+    model = Lotes
+    form_class = LotesForm
+
+    def get_success_url(self, **kwargs) -> str:
+        return reverse_lazy('lotes:tablalotes')
