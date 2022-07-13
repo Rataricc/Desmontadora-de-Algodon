@@ -30,6 +30,7 @@
                                 <th scope="col">Cotton Type ID</th>
                                 <th scope="col">Variety ID</th>
                                 <th></th>
+                                <th></th>
 
                             </tr>
                         </thead>
@@ -50,6 +51,9 @@
                                     <td>{{a.variedad_id}}</td>
                                     <td>
                                         <a href="{% url 'balanza:editar_tabla_balanza' a.pk %}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'balanza:eliminar_campo_balanza' a.pk %}">Remove</a>
                                     </td>
                                 </tr>
                             {% empty %}

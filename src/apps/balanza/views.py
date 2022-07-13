@@ -6,6 +6,8 @@ from .models                        import Balanza
 from django.shortcuts               import render
 from apps.balanza .forms            import BalanzaForm 
 from django.urls                    import reverse_lazy
+from django.views.generic 			import DeleteView
+
 # Create your views here.
 
 @login_required
@@ -33,3 +35,10 @@ class EditarTabla(UpdateView):
 
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('balanza:tablabalanza')
+
+class EliminarCampoBalanza(DeleteView):
+	model = Balanza
+	template_name = 'balanza/eliminar_balanza.html' 
+
+	def get_success_url(self, **kwargs): 
+		return reverse_lazy('balanza:tablabalanza')

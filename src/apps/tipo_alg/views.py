@@ -6,6 +6,7 @@ from apps.tipo_alg .forms           import Tipo_AlgForm
 from .models                        import Tipo_Alg
 from django.urls                    import reverse_lazy
 from django.views.generic.edit      import UpdateView
+from django.views.generic 			import DeleteView
 
 # Create your views here.
 
@@ -34,3 +35,10 @@ class EditarTablaTipoAlgodon(UpdateView):
 
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('tipo_alg:tablatipoalgodon')
+
+class EliminarCampoTipo_alg(DeleteView):
+	model = Tipo_Alg
+	template_name = 'tipo_alg/eliminar_tipo_alg.html' 
+
+	def get_success_url(self, **kwargs): 
+		return reverse_lazy('tipo_alg:tablatipoalgodon')

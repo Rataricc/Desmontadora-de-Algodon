@@ -23,6 +23,7 @@
                                 <th scope="col">Department</th>
                                 <th scope="col">Census ID</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,6 +36,9 @@
                                     <td>{{a.padron_id}}</td>
                                     <td>
                                         <a href="{% url 'establecimiento:editar_tabla_establecimiento' a.pk %}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'establecimiento:eliminar_campo_establecimiento' a.pk %}">Remove</a>
                                     </td>
                                 </tr>
                             {% empty %}

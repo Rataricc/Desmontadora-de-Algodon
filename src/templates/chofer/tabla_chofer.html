@@ -23,6 +23,7 @@
                                 <th scope="col">driver cuit number</th>
                                 <th scope="col">census ID</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,6 +36,9 @@
                                     <td>{{a.padron_id}}</td>
                                     <td>
                                         <a href="{% url 'chofer_camion:editar_tabla_chofer' a.pk %}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'chofer_camion:eliminar_campo_chofer' a.pk %}">Remove</a>
                                     </td>
                                 </tr>
                             {% empty %}

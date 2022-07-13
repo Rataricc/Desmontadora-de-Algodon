@@ -6,6 +6,7 @@ from .models                        import Lotes
 from .forms                         import LotesForm
 from django.urls                    import reverse_lazy
 from django.views.generic.edit      import UpdateView
+from django.views.generic 			import DeleteView
 
 
 # Create your views here.
@@ -35,3 +36,10 @@ class EditarTablaLotes(UpdateView):
 
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('lotes:tablalotes')
+
+class EliminarCampoLotes(DeleteView):
+	model = Lotes
+	template_name = 'lotes/eliminar_lotes.html' 
+
+	def get_success_url(self, **kwargs): 
+		return reverse_lazy('lotes:tablalotes')

@@ -7,4 +7,5 @@ urlpatterns = [
     path('lotes/', views.lotes, name='nuevolote'),
     path('Tabla_Lotes/', views.TablaLotes.as_view(), name='tablalotes'),
     path('Editar_Lotes/<int:pk>/', views.EditarTablaLotes.as_view(), name='editar_tabla_lotes'),
+    path('Eliminar_Campo_Lotes/<int:pk>/', views.EliminarCampoLotes.as_view(), name='eliminar_campo_lotes'),
 ]

@@ -6,6 +6,7 @@ from django.shortcuts               import render
 from django.views.generic           import ListView
 from django.urls                    import reverse_lazy
 from django.views.generic.edit      import UpdateView
+from django.views.generic 			import DeleteView
 
 # Create your views here.
 
@@ -34,3 +35,10 @@ class EditarTablaEstablecimiento(UpdateView):
 
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('establecimineto:tablaestablecimiento')
+
+class EliminarCampoEstablecimiento(DeleteView):
+	model = Establecimiento
+	template_name = 'establecimiento/eliminar_establecimiento.html' 
+
+	def get_success_url(self, **kwargs): 
+		return reverse_lazy('establecimineto:tablaestablecimiento')

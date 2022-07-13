@@ -6,6 +6,7 @@ from django.shortcuts               import render
 from .models                        import Variedad
 from django.urls                    import reverse_lazy
 from django.views.generic.edit      import UpdateView
+from django.views.generic 			import DeleteView
 
 # Create your views here.
 
@@ -34,3 +35,10 @@ class EditarTablaVariedad(UpdateView):
 
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('variedad:tablavariedad')
+
+class EliminarCampoVariedad(DeleteView):
+	model = Variedad
+	template_name = 'variedad/eliminar_variedad.html' 
+
+	def get_success_url(self, **kwargs): 
+		return reverse_lazy('variedad:tablavariedad')

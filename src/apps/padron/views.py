@@ -6,6 +6,7 @@ from .forms                         import PadronForm
 from .models                        import Padron
 from django.urls                    import reverse_lazy
 from django.views.generic.edit      import UpdateView
+from django.views.generic 			import DeleteView
 
 # Create your views here.
 
@@ -34,3 +35,10 @@ class EditarTablaPadron(UpdateView):
 
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('padron:tablapadron')
+
+class EliminarCampoPadron(DeleteView):
+	model = Padron
+	template_name = 'padron/eliminar_padron.html' 
+
+	def get_success_url(self, **kwargs): 
+		return reverse_lazy('padron:tablapadron')

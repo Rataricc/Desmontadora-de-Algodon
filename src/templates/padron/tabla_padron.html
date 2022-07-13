@@ -20,6 +20,7 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">name and surname</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,6 +30,9 @@
                                     <td>{{a.nombre_completoApellidos}}</td>
                                     <td>
                                         <a href="{% url 'padron:editar_tabla_padron' a.pk %}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'padron:eliminar_campo_padron' a.pk %}">Remove</a>
                                     </td>
                                 </tr>
                             {% empty %}

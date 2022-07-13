@@ -6,6 +6,7 @@ from .models                        import Chofer, Camion
 from apps.chofer_camion .forms      import ChoferForm, CamionForm
 from django.urls                    import reverse_lazy
 from django.views.generic.edit      import UpdateView
+from django.views.generic 			import DeleteView
 # Create your views here.
 
 @login_required
@@ -59,3 +60,17 @@ class EditarTablaCamion(UpdateView):
 
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('chofer_camion:tablacamion')
+
+class EliminarCampoChofer(DeleteView):
+	model = Chofer
+	template_name = 'chofer/eliminar_chofer.html' 
+
+	def get_success_url(self, **kwargs): 
+		return reverse_lazy('chofer_camion:tablachofer')
+
+class EliminarCampoCamion(DeleteView):
+	model = Camion
+	template_name = 'camion/eliminar_camion.html' 
+
+	def get_success_url(self, **kwargs): 
+		return reverse_lazy('chofer_camion:tablacamion')

@@ -20,6 +20,7 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">Variety description</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,6 +30,9 @@
                                     <td>{{a.descripcion_variedad}}</td>
                                     <td>
                                         <a href="{% url 'variedad:editar_tabla_variedad_semilla' a.pk %}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'variedad:eliminar_campo_variedad' a.pk %}">Remove</a>
                                     </td>
                                 </tr>
                             {% empty %}
