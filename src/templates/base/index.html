@@ -83,35 +83,33 @@
         <header>
             <div class="collapse bg-dark" id="navbarHeader">
                 <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">ServiSoft</h4>
-                    <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                    <div class="row">
+                        <div class="col-sm-8 col-md-7 py-4">
+                            <h4 class="text-white">ServiSoft</h4>
+                            <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                        </div>
+                        <div class="col-sm-4 offset-md-1 py-4">
+                            <h4 class="text-white">Contact</h4>
+                            <ul class="list-unstyled">
+                                
+                                {% if not user.is_authenticated %}
+                                    <li><a href="{% url 'login' %}" class="text-white">Iniciar Sesion</a></li>
+                                {% else %}
+                                    <li><a href="{% url 'logout' %}" class="text-white">Cerrar Sesion</a></li>
+                                {% endif %}   
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-sm-4 offset-md-1 py-4">
-                    <h4 class="text-white">Contact</h4>
-                    <ul class="list-unstyled">
-                        
-                        {% if not user.is_authenticated %}
-                            <li><a href="{% url 'login' %}" class="text-white">Iniciar Sesion</a></li>
-                        {% else %}
-                            <li><a href="{% url 'logout' %}" class="text-white">Cerrar Sesion</a></li>
-                        {% endif %}
-                            
-                       
-                    </ul>
-                    </div>
-                </div>
                 </div>
             </div>
             <div class="navbar navbar-dark bg-dark shadow-sm">
                 <div class="container">
-                <a href="#" class="navbar-brand d-flex align-items-center">
-                    <strong>ServiSoft</strong>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <a href="#" class="navbar-brand d-flex align-items-center">
+                        <strong>ServiSoft</strong>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
             </div>
         </header>
@@ -188,10 +186,14 @@
         <footer class="text-muted py-5">
             <div class="container">
                 <p class="float-end mb-1">
-                <a href="#">Ir Arriba</a>
+                    <a href="#">Ir Arriba</a>
                 </p>
-                <p class="mb-1">Todos los derechos reservados © 2022 - Grupo ServiSoft</p>
-                <p class="mb-0">Pagina principal <a href="http://www.gruposervisoft.com/">ir a Pagina Principal</a>.</p>
+                <p class="mb-1">
+                    Todos los derechos reservados © 2022 - Grupo ServiSoft
+                </p>
+                <p class="mb-0">
+                    Pagina principal <a href="http://www.gruposervisoft.com/">ir a Pagina Principal</a>.
+                </p>
             </div>
         </footer>
 

@@ -20,6 +20,7 @@
                                 {% include "includes/_forms_errors.html" with formulario=form %}
                                 {% include "includes/_forms.html"  with formulario=form %}
                                     <button type="submit" class="btn btn-success">Guardar</button>
+                                    <a class="btn btn-danger" href="{% url 'chofer_camion:tablachofer' %}">Cancelar</a>
                             </center>
                         </form>
                     </div>

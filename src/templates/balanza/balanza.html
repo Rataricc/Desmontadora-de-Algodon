@@ -21,6 +21,7 @@
                                 {% include "includes/_forms_errors.html" with formulario=form %}
                                 {% include "includes/_forms.html"  with formulario=form %} <!--Despues agregar los estilos a los forms-->
                                     <button type="submit" class="btn btn-success">Guardar</button>
+                                    <a class="btn btn-danger" href="{% url 'balanza:tablabalanza' %}">Cancelar</a>
                             </center>
                         </form>
                     </div>
