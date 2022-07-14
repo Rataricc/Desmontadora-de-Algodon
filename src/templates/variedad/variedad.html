@@ -11,16 +11,22 @@
                 </center>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <form method="POST">{% csrf_token %}
-                    <center>
-                        {{form.as_p}}
-                            <button type="submit" class="btn btn-success">Guardar</button>
-                    </center>
-                </form>
+        <div class="container">
+            <div class="row">
+                <div class="bd-example">
+                    <div class="col">
+                        <form method="POST">{% csrf_token %}
+                            <center>
+                                {% include "includes/_forms_errors.html" with formulario=form %}
+                                {% include "includes/_forms.html"  with formulario=form %}
+                                    <button type="submit" class="btn btn-success">Guardar</button>
+                            </center>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <br><br><hr>
+    </div>
+    <br><br><hr>
 				
 {% endblock contenido %}
