@@ -28,7 +28,7 @@ class TablaBalanza(LoginRequiredMixin, ListView):
     model = Balanza
     context_object_name = 'balanza'
 
-class EditarTabla(UpdateView): 
+class EditarTabla(LoginRequiredMixin, UpdateView): 
     template_name = 'balanza/editar_tabla.html'
     model = Balanza
     form_class = BalanzaForm 
@@ -36,7 +36,7 @@ class EditarTabla(UpdateView):
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('balanza:tablabalanza')
 
-class EliminarCampoBalanza(DeleteView):
+class EliminarCampoBalanza(LoginRequiredMixin, DeleteView):
 	model = Balanza
 	template_name = 'balanza/eliminar_balanza.html' 
 

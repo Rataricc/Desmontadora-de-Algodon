@@ -18,8 +18,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">lot number</th>
-                                <th scope="col">census ID</th>
+                                <th scope="col">Establecimiento ID</th>
+                                <th scope="col">Padron ID</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -31,10 +31,10 @@
                                     <td>{{a.establecimiento_id}}</td>
                                     <td>{{a.padron_id}}</td>
                                     <td>
-                                        <a href="{% url 'lotes:editar_tabla_lotes' a.pk %}">Edit</a>
+                                        <a href="{% url 'lotes:editar_tabla_lotes' a.pk %}">Editar</a>
                                     </td>
                                     <td>
-                                        <a href="{% url 'lotes:eliminar_campo_lotes' a.pk %}">Remove</a>
+                                        <a href="{% url 'lotes:eliminar_campo_lotes' a.pk %}">Eliminar</a>
                                     </td>
                                 </tr>
                             {% empty %}

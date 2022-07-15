@@ -18,7 +18,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">harvest description</th>
+                                <th scope="col">Descripcion Cosecha</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -29,10 +29,10 @@
                                     <td>{{a.id}}</td>
                                     <td>{{a.descripcion_cosecha}}</td>
                                     <td>
-                                        <a href="{% url 'tipo_alg:editar_tabla_tipo_algodon' a.pk %}">Edit</a>
+                                        <a href="{% url 'tipo_alg:editar_tabla_tipo_algodon' a.pk %}">Editar</a>
                                     </td>
                                     <td>
-                                        <a href="{% url 'tipo_alg:eliminar_campo_tipo_alg' a.pk %}">Remove</a>
+                                        <a href="{% url 'tipo_alg:eliminar_campo_tipo_alg' a.pk %}">Eliminar</a>
                                     </td>
                                 </tr>
                             {% empty %}

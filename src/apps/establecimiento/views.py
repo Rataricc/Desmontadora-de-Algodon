@@ -28,7 +28,7 @@ class TablaEstablecimiento(LoginRequiredMixin, ListView):
     model = Establecimiento
     context_object_name = 'establecimiento'
 
-class EditarTablaEstablecimiento(UpdateView): 
+class EditarTablaEstablecimiento(LoginRequiredMixin, UpdateView): 
     template_name = 'establecimiento/editar_tabla_establecimiento.html'
     model = Establecimiento
     form_class = EstablecimientoForm
@@ -36,7 +36,7 @@ class EditarTablaEstablecimiento(UpdateView):
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('establecimineto:tablaestablecimiento')
 
-class EliminarCampoEstablecimiento(DeleteView):
+class EliminarCampoEstablecimiento(LoginRequiredMixin, DeleteView):
 	model = Establecimiento
 	template_name = 'establecimiento/eliminar_establecimiento.html' 
 

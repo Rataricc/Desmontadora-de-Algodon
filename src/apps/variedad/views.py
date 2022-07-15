@@ -28,7 +28,7 @@ class TablaVariedad(LoginRequiredMixin, ListView):
     model = Variedad
     context_object_name = 'variedad'
 
-class EditarTablaVariedad(UpdateView): 
+class EditarTablaVariedad(LoginRequiredMixin, UpdateView): 
     template_name = 'variedad/editar_tabla_variedad_semilla.html'
     model = Variedad
     form_class = VariedadForm
@@ -36,7 +36,7 @@ class EditarTablaVariedad(UpdateView):
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('variedad:tablavariedad')
 
-class EliminarCampoVariedad(DeleteView):
+class EliminarCampoVariedad(LoginRequiredMixin, DeleteView):
 	model = Variedad
 	template_name = 'variedad/eliminar_variedad.html' 
 

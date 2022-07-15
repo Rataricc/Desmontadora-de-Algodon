@@ -18,10 +18,10 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">name and surname</th>
-                                <th scope="col">driver's license</th>
-                                <th scope="col">driver cuit number</th>
-                                <th scope="col">census ID</th>
+                                <th scope="col">Nombre y Apellido</th>
+                                <th scope="col">Carnet Conducir Chofer</th>
+                                <th scope="col">Numero Cuit Chofer</th>
+                                <th scope="col">Padron ID</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -35,10 +35,10 @@
                                     <td>{{a.num_cuit_chofer}}</td>
                                     <td>{{a.padron_id}}</td>
                                     <td>
-                                        <a href="{% url 'chofer_camion:editar_tabla_chofer' a.pk %}">Edit</a>
+                                        <a href="{% url 'chofer_camion:editar_tabla_chofer' a.pk %}">Editar</a>
                                     </td>
                                     <td>
-                                        <a href="{% url 'chofer_camion:eliminar_campo_chofer' a.pk %}">Remove</a>
+                                        <a href="{% url 'chofer_camion:eliminar_campo_chofer' a.pk %}">Eliminar</a>
                                     </td>
                                 </tr>
                             {% empty %}

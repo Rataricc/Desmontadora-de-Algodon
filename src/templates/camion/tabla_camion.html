@@ -18,9 +18,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">patent truck</th>
-                                <th scope="col">coupled patent</th>
-                                <th scope="col">driver ID</th>
+                                <th scope="col">Patente Camion</th>
+                                <th scope="col">Patente Acomplado</th>
+                                <th scope="col">Chofer ID</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -33,10 +33,10 @@
                                     <td>{{a.patente_acomplado}}</td>
                                     <td>{{a.chofer_id}}</td>
                                     <td>
-                                        <a href="{% url 'chofer_camion:editar_tabla_camion' a.pk %}">Edit</a>
+                                        <a href="{% url 'chofer_camion:editar_tabla_camion' a.pk %}">Editar</a>
                                     </td>
                                     <td>
-                                        <a href="{% url 'chofer_camion:eliminar_campo_camion' a.pk %}">Remove</a>
+                                        <a href="{% url 'chofer_camion:eliminar_campo_camion' a.pk %}">Eliminar</a>
                                     </td>
                                 </tr>
                             {% empty %}

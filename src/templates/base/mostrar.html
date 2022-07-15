@@ -2,18 +2,47 @@
 
 {% block contenido %}
 
+
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <center>
-                        <h1>Tabla Balanza</h1>
+                        <h1>Datos</h1>
                     </center>
                 </div>
             </div>
             <br><br>
             <div class="row">
                 <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nombres y Apellidos</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for a in lista_padron %}
+                                <tr>
+                                    <td>{{a.codigo_cliente}}</td>
+                                    <td>{{a.nombre_completoApellidos}}</td>
+                                    <td>
+                                        <a href="{% url 'padron:editar_tabla_padron' a.pk %}">Editar</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'padron:eliminar_campo_padron' a.pk %}">Eliminar</a>
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td>No se encontraron resultados</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                     <table class="table">
                         <thead>
                             <tr>
@@ -34,8 +63,9 @@
 
                             </tr>
                         </thead>
+                        <br><br>
                         <tbody>
-                            {% for a in balanza %}
+                            {% for a in lista_balaza %}
                                 <tr>
                                     <td>{{a.numero_remito}}</td>
                                     <td>{{a.codigo_productor}}</td>
@@ -50,10 +80,10 @@
                                     <td>{{a.tipo_alg_id}}</td>
                                     <td>{{a.variedad_id}}</td>
                                     <td>
-                                        <a href="{% url 'balanza:editar_tabla_balanza' a.pk %}">Editar</a>
+                                        <a href="{% url 'balanza:editar_tabla_balanza' a.pk %}">Edit</a>
                                     </td>
                                     <td>
-                                        <a href="{% url 'balanza:eliminar_campo_balanza' a.pk %}">Eliminar</a>
+                                        <a href="{% url 'balanza:eliminar_campo_balanza' a.pk %}">Remove</a>
                                     </td>
                                 </tr>
                             {% empty %}
@@ -67,5 +97,6 @@
             </div>
         </div>
     </div>
+
 
 {% endblock contenido %}

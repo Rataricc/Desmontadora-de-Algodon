@@ -45,7 +45,7 @@ class TablaCamion(LoginRequiredMixin, ListView):
     model = Camion
     context_object_name = 'camion'
 
-class EditarTablaChofer(UpdateView): 
+class EditarTablaChofer(LoginRequiredMixin, UpdateView): 
     template_name = 'chofer/editar_tabla_chofer.html'
     model = Chofer
     form_class = ChoferForm
@@ -53,7 +53,7 @@ class EditarTablaChofer(UpdateView):
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('chofer_camion:tablachofer')
 
-class EditarTablaCamion(UpdateView): 
+class EditarTablaCamion(LoginRequiredMixin, UpdateView): 
     template_name = 'camion/editar_tabla_camion.html'
     model = Camion
     form_class = CamionForm
@@ -61,14 +61,14 @@ class EditarTablaCamion(UpdateView):
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('chofer_camion:tablacamion')
 
-class EliminarCampoChofer(DeleteView):
+class EliminarCampoChofer(LoginRequiredMixin, DeleteView):
 	model = Chofer
 	template_name = 'chofer/eliminar_chofer.html' 
 
 	def get_success_url(self, **kwargs): 
 		return reverse_lazy('chofer_camion:tablachofer')
 
-class EliminarCampoCamion(DeleteView):
+class EliminarCampoCamion(LoginRequiredMixin, DeleteView):
 	model = Camion
 	template_name = 'camion/eliminar_camion.html' 
 

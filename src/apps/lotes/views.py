@@ -29,7 +29,7 @@ class TablaLotes(LoginRequiredMixin, ListView):
     model = Lotes
     context_object_name = 'lotes'
 
-class EditarTablaLotes(UpdateView): 
+class EditarTablaLotes(LoginRequiredMixin, UpdateView): 
     template_name = 'lotes/editar_tabla_lotes.html'
     model = Lotes
     form_class = LotesForm
@@ -37,7 +37,7 @@ class EditarTablaLotes(UpdateView):
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('lotes:tablalotes')
 
-class EliminarCampoLotes(DeleteView):
+class EliminarCampoLotes(LoginRequiredMixin, DeleteView):
 	model = Lotes
 	template_name = 'lotes/eliminar_lotes.html' 
 

@@ -28,7 +28,7 @@ class TablaPadron(LoginRequiredMixin, ListView):
     model = Padron
     context_object_name = 'padron'
 
-class EditarTablaPadron(UpdateView): 
+class EditarTablaPadron(LoginRequiredMixin, UpdateView): 
     template_name = 'padron/editar_tabla_padron.html'
     model = Padron
     form_class = PadronForm
@@ -36,7 +36,7 @@ class EditarTablaPadron(UpdateView):
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('padron:tablapadron')
 
-class EliminarCampoPadron(DeleteView):
+class EliminarCampoPadron(LoginRequiredMixin, DeleteView):
 	model = Padron
 	template_name = 'padron/eliminar_padron.html' 
 

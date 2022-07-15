@@ -18,7 +18,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">name and surname</th>
+                                <th scope="col">Nombres y Apellidos</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -29,10 +29,10 @@
                                     <td>{{a.codigo_cliente}}</td>
                                     <td>{{a.nombre_completoApellidos}}</td>
                                     <td>
-                                        <a href="{% url 'padron:editar_tabla_padron' a.pk %}">Edit</a>
+                                        <a href="{% url 'padron:editar_tabla_padron' a.pk %}">Editar</a>
                                     </td>
                                     <td>
-                                        <a href="{% url 'padron:eliminar_campo_padron' a.pk %}">Remove</a>
+                                        <a href="{% url 'padron:eliminar_campo_padron' a.pk %}">Eliminar</a>
                                     </td>
                                 </tr>
                             {% empty %}

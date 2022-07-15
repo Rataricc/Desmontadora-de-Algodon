@@ -28,7 +28,7 @@ class TablaTipoAlgodon(LoginRequiredMixin, ListView):
     model = Tipo_Alg
     context_object_name = 'algodon'
 
-class EditarTablaTipoAlgodon(UpdateView): 
+class EditarTablaTipoAlgodon(LoginRequiredMixin, UpdateView): 
     template_name = 'tipo_alg/editar_tabla_tipo_algodon.html'
     model = Tipo_Alg
     form_class = Tipo_AlgForm 
@@ -36,7 +36,7 @@ class EditarTablaTipoAlgodon(UpdateView):
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy('tipo_alg:tablatipoalgodon')
 
-class EliminarCampoTipo_alg(DeleteView):
+class EliminarCampoTipo_alg(LoginRequiredMixin, DeleteView):
 	model = Tipo_Alg
 	template_name = 'tipo_alg/eliminar_tipo_alg.html' 
 
