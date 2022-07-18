@@ -7,6 +7,8 @@ from apps.chofer_camion .forms      import ChoferForm, CamionForm
 from django.urls                    import reverse_lazy
 from django.views.generic.edit      import UpdateView
 from django.views.generic 			import DeleteView
+from django.db.models               import Q
+
 # Create your views here.
 
 @login_required
@@ -27,6 +29,18 @@ class TablaChofer(LoginRequiredMixin, ListView):
     model = Chofer
     context_object_name = 'chofer'
 
+    def get_queryset(self):
+        queryset = self.request.GET.get("buscar")
+        clientes =  Chofer.objects.all()
+        if queryset: 
+            cliente = Chofer.objects.filter(
+                Q(codigo_transportista__icontains = queryset) |
+                Q(descripcion_transportista__icontains = queryset)
+            ).distinct() 
+            
+            return cliente
+        return clientes
+
 @login_required
 def camion(request): 
     template_name = "camion/camion.html"
@@ -44,6 +58,20 @@ class TablaCamion(LoginRequiredMixin, ListView):
     template_name = 'camion/tabla_camion.html'
     model = Camion
     context_object_name = 'camion'
+
+    def get_queryset(self):
+        queryset = self.request.GET.get("buscar")
+        clientes =  Camion.objects.all()
+        if queryset: 
+            cliente = Camion.objects.filter(
+                Q(id__icontains = queryset) |
+                Q(patente_camion__icontains = queryset) |
+                Q(patente_acomplado__icontains = queryset)
+            ).distinct() 
+            
+            return cliente
+        return clientes
+
 
 class EditarTablaChofer(LoginRequiredMixin, UpdateView): 
     template_name = 'chofer/editar_tabla_chofer.html'
