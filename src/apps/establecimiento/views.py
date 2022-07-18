@@ -7,6 +7,7 @@ from django.views.generic           import ListView
 from django.urls                    import reverse_lazy
 from django.views.generic.edit      import UpdateView
 from django.views.generic 			import DeleteView
+from django.db.models               import Q
 
 # Create your views here.
 
@@ -27,6 +28,18 @@ class TablaEstablecimiento(LoginRequiredMixin, ListView):
     template_name = 'establecimiento/tabla_establecimiento.html'
     model = Establecimiento
     context_object_name = 'establecimiento'
+
+    def get_queryset(self):
+        queryset = self.request.GET.get("buscar")
+        clientes =  Establecimiento.objects.all()
+        if queryset: 
+            cliente = Establecimiento.objects.filter(
+                Q(codigo_establecimiento__icontains = queryset) |
+                Q(descripcion_establecimiento__icontains = queryset)
+            ).distinct() 
+            
+            return cliente
+        return clientes
 
 class EditarTablaEstablecimiento(LoginRequiredMixin, UpdateView): 
     template_name = 'establecimiento/editar_tabla_establecimiento.html'
