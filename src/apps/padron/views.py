@@ -7,6 +7,7 @@ from .models                        import Padron
 from django.urls                    import reverse_lazy
 from django.views.generic.edit      import UpdateView
 from django.views.generic 			import DeleteView
+from django.db.models               import Q
 
 # Create your views here.
 
@@ -27,6 +28,17 @@ class TablaPadron(LoginRequiredMixin, ListView):
     template_name = 'padron/tabla_padron.html'
     model = Padron
     context_object_name = 'padron'
+
+    def get_queryset(self):
+        queryset = self.request.GET.get("buscar")
+        if queryset: 
+            clientes = Padron.objects.filter(
+                Q(nombre_completoApellidos__icontains = queryset) |
+                Q(codigo_cliente__icontains = queryset)
+            ).distinct() 
+            
+            return clientes
+        return Padron.objects.all()
 
 class EditarTablaPadron(LoginRequiredMixin, UpdateView): 
     template_name = 'padron/editar_tabla_padron.html'
