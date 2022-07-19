@@ -31,6 +31,8 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name="login.html"), name="login"),
     path('logout/', auth_views.logout_then_login, name="logout"),
 
-    path('mostarDatos/', views.mostrarDatos, name='mostrar_datos')
+    path('mostarDatos/', views.mostrarDatos, name='mostrar_datos'),
+
+    path("select2/", include("django_select2.urls")),
     
 ]

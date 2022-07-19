@@ -1,4 +1,3 @@
-from urllib import request
 from apps.establecimiento.models import Establecimiento
 from apps.lotes.models           import Lotes
 from apps.padron.models          import Padron
@@ -7,10 +6,10 @@ from apps.variedad.models        import Variedad
 from apps.chofer_camion.models   import Chofer
 from django                      import forms
 from .models                     import Balanza
-from django.db.models            import Q
+#from django_select2 import forms as s2forms
 
 class BalanzaForm(forms.ModelForm): 
-    padron = forms.ModelChoiceField(queryset=Padron.objects.filter(), empty_label="(Seleccione un articulo)", widget=forms.Select(attrs={'class':'form-control'}))
+    padron = forms.ModelChoiceField(queryset=Padron.objects.filter(), empty_label="(Seleccione un Cliente)", widget=forms.Select(attrs={'class':'form-control'}))
     codigo_productor = forms.IntegerField(widget=forms.NumberInput(attrs={'class':'form-control'}))
     tipo_alg = forms.ModelChoiceField(queryset=Tipo_Alg.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
     establecimiento = forms.ModelChoiceField(queryset=Establecimiento.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
