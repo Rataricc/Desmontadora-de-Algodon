@@ -206,10 +206,19 @@
         
         <script>
             $(document).ready(function() {
-                $("#id_padron").select2(); 
-            }); 
+                $("#id_padron").select2({
+                    theme: 'classic', 
+                    width: 'resolve',
+                    placeholder: 'Seleccione un Cliente',
+                    allowClear: true,
+                });  
+            });
+
             $(document).ready(function() {
-                $("#id_tipo_alg").select2(); 
+                $("#id_tipo_alg").select2({
+                    theme: "classic", 
+                    width: 'resolve'
+                }); 
             }); 
         </script>
       
