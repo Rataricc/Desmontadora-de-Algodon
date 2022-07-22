@@ -217,9 +217,38 @@
             $(document).ready(function() {
                 $("#id_tipo_alg").select2({
                     theme: "classic", 
-                    width: 'resolve'
+                    width: 'resolve',
+                    placeholder: 'Seleccione un Tipo de Algodon',
+                    allowClear: true,
                 }); 
-            }); 
+            });
+
+            $(document).ready(function() {
+                $("#id_establecimiento").select2({
+                    theme: "classic", 
+                    width: 'resolve',
+                    placeholder: 'Seleccione un Establecimiento',
+                    allowClear: true,
+                }); 
+            });  
+
+            $(document).ready(function() {
+                $("#id_variedad").select2({
+                    theme: "classic", 
+                    width: 'resolve',
+                    placeholder: 'Seleccione una Variedad de Semilla',
+                    allowClear: true,
+                }); 
+            });  
+
+            $(document).ready(function() {
+                $("#id_chofer").select2({
+                    theme: "classic", 
+                    width: 'resolve',
+                    placeholder: 'Seleccione un Chofer',
+                    allowClear: true,
+                }); 
+            });  
         </script>
       
     </body>
